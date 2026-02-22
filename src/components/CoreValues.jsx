@@ -35,13 +35,13 @@ const CoreValues = () => {
           <h2 className="section-title">About Our Branch</h2>
           <div className="divider"></div>
           <p className="section-subtitle" style={{ maxWidth: '800px', margin: '0 auto', fontSize: '1.1rem', lineHeight: '1.6', color: 'var(--navy-light)' }}>
-            The Royal Naval Association Forth Valley Branch is a friendly, inclusive, and free-to-join branch for serving and former Royal Navy and Royal Marines personnel, as well as their families, who are proud of their naval service and heritage.
+            Like all Royal Naval Association branches, the Forth Valley branch is friendly, inclusive, and free to join, welcoming serving and former Royal Navy and Royal Marines personnel, along with their families, who are proud of their naval service and heritage.
             <br /><br />
             We are here to bring together people with a naval connection across the Forth Valley and surrounding areas, offering companionship, support, and a strong sense of belonging within the wider Naval Family.
             <br /><br />
             Our branch exists to support members through life’s highs and lows through peer support, wellbeing signposting, and a welcoming programme of social activities, events, and commemorations.
             <br /><br />
-            Guided by the Royal Naval Association's values of Unity, Loyalty, Patriotism, and Comradeship, we aim to create a space where everyone with a naval story feels valued and supported.
+            Guided by the RNA values of Unity, Loyalty, Patriotism, and Comradeship, we aim to create a space where everyone with a naval story feels valued and supported.
             <br /><br />
             At the heart of RNA Forth Valley are the Seven Cs of Comradeship:
             <br />
