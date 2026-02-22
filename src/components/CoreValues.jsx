@@ -35,11 +35,21 @@ const CoreValues = () => {
           <h2 className="section-title">About Our Branch</h2>
           <div className="divider"></div>
           <p className="section-subtitle" style={{ maxWidth: '800px', margin: '0 auto', fontSize: '1.1rem', lineHeight: '1.6', color: 'var(--navy-light)' }}>
-            This group is for serving and former members of the Royal Navy and Royal Marines based in the Forth Valley and surrounding areas of Scotland.
+            The Royal Naval Association Forth Valley Branch is a friendly, inclusive, and free-to-join branch for serving and former Royal Navy and Royal Marines personnel, as well as their families, who are proud of their naval service and heritage.
             <br /><br />
-            We meet on the second Friday of each month at the Royal British Legion, 4 Dundas Street, Grangemouth.
+            We are here to bring together people with a naval connection across the Forth Valley and surrounding areas, offering companionship, support, and a strong sense of belonging within the wider Naval Family.
             <br /><br />
-            Members from other branches are always welcome.
+            Our branch exists to support members through life’s highs and lows through peer support, wellbeing signposting, and a welcoming programme of social activities, events, and commemorations.
+            <br /><br />
+            Guided by the Royal Naval Association's values of Unity, Loyalty, Patriotism, and Comradeship, we aim to create a space where everyone with a naval story feels valued and supported.
+            <br /><br />
+            At the heart of RNA Forth Valley are the Seven Cs of Comradeship:
+            <br />
+            Community, Connection, Commemoration, Care, Compassion, Companionship, and Celebration.
+            <br /><br />
+            We honour naval traditions, share experiences, and look out for one another, maintaining the naval ethos while enjoying good company and mutual support.
+            <br /><br />
+            As part of the Royal Naval Association, established in the aftermath of the Second World War, our mission is to foster comradeship, strengthen connections, and enhance the Naval Family through events, communication, and wellbeing support at a local level.
           </p>
         </div>
 
