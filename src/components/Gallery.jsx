@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, ZoomIn } from 'lucide-react';
 import './Gallery.css';
 
@@ -8,20 +8,29 @@ const galleryImages = [
   { id: 3, url: 'https://images.unsplash.com/photo-1559863481-645396b1b5e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', alt: 'Veteran gathering' },
   { id: 4, url: 'https://images.unsplash.com/photo-1577413470719-74e2dadd7d96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', alt: 'Branch meeting' },
   { id: 5, url: 'https://images.unsplash.com/photo-1502083896352-259ab9e342d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', alt: 'Remembrance day wreaths' },
-  { id: 6, url: 'https://images.unsplash.com/photo-1582294101150-51c356da3515?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', alt: 'Naval officers' }
 ];
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
+  useEffect(() => {
+    if (selectedImage) {
+      document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+    
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [selectedImage]);
+
   const openLightbox = (image) => {
     setSelectedImage(image);
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling
   };
 
   const closeLightbox = () => {
     setSelectedImage(null);
-    document.body.style.overflow = 'auto';
   };
 
   return (
