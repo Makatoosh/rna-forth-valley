@@ -30,14 +30,14 @@
 }
 
 .navbar-logo-image {
-  height: 60px;
+  height: 90px;
   width: auto;
   border-radius: 4px; /* Optional, adds a slight curve to the image corners */
   transition: height var(--transition-normal);
 }
 
 .navbar.scrolled .navbar-logo-image {
-  height: 50px;
+  height: 70px;
 }
 
 .nav-links {
