@@ -15,8 +15,8 @@ const HeroSection = () => {
         <div className="hero-badge fade-in-up">Est. 1950</div>
         <h1 className="hero-title fade-in-up delay-1">Once Navy, Always Navy</h1>
         <p className="hero-subtitle fade-in-up delay-2">
-          Unity. Loyalty. Patriotism. Comradeship.
-          <br/>Welcome to the RNA Forth Valley Branch.
+          Welcome to the RNA Forth Valley Branch.
+          <br/>Unity. Loyalty. Patriotism. Comradeship.
         </p>
         <div className="hero-actions fade-in-up delay-3">
           <a href="https://www.royal-naval-association.co.uk/join-us" target="_blank" rel="noopener noreferrer" className="btn btn-primary hero-btn">
