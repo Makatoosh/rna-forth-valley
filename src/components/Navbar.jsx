@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Anchor } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import rnaLogo from '../assets/images/RNAFV.jpg';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -26,11 +27,7 @@ const Navbar = () => {
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container nav-container">
         <div className="nav-logo">
-          <Anchor className="logo-icon" size={32} />
-          <div className="logo-text">
-            <span className="logo-title">Royal Naval Association</span>
-            <span className="logo-subtitle">Forth Valley</span>
-          </div>
+          <img src={rnaLogo} alt="RNA Forth Valley" className="navbar-logo-image" />
         </div>
 
         {/* Desktop Menu */}
