@@ -32,6 +32,18 @@ const CoreValues = () => {
       <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(248, 249, 250, 0.95)' }}></div>
       <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         <div className="section-header text-center">
+          <h2 className="section-title">About Our Branch</h2>
+          <div className="divider"></div>
+          <p className="section-subtitle" style={{ maxWidth: '800px', margin: '0 auto', fontSize: '1.1rem', lineHeight: '1.6', color: 'var(--navy-light)' }}>
+            This group is for serving and former members of the Royal Navy and Royal Marines based in the Forth Valley and surrounding areas of Scotland.
+            <br /><br />
+            We meet on the second Friday of each month at the Royal British Legion, 4 Dundas Street, Grangemouth.
+            <br /><br />
+            Members from other branches are always welcome.
+          </p>
+        </div>
+
+        <div className="section-header text-center" style={{ marginTop: '4rem' }}>
           <h2 className="section-title">Our Core Values</h2>
           <div className="divider"></div>
           <p className="section-subtitle">
