@@ -1,50 +1,87 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Anchor } from 'lucide-react';
 import './Navbar.css';
+
+const navLinks = [
+  { name: 'About',     href: '#about',    type: 'hash'  },
+  { name: 'Welfare',   to: '/welfare',    type: 'route' },
+  { name: 'Events',    to: '/events',     type: 'route' },
+  { name: 'Committee', to: '/committee',  type: 'route' },
+  { name: 'Contact',   href: '#contact',  type: 'hash'  },
+];
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [
-    { name: 'Home', href: '#' },
-    { name: 'About', href: '#about' },
-    { name: 'Welfare', href: '#welfare' },
-    { name: 'Events', href: '#events' },
-    { name: 'Contact', href: '#contact' },
-  ];
+  const isActive = (link) => {
+    if (link.type === 'route') {
+      return location.pathname.startsWith(link.to);
+    }
+    return false;
+  };
+
+  const renderLink = (link, extraClass = '', onClick) => {
+    if (link.type === 'route') {
+      return (
+        <Link
+          key={link.name}
+          to={link.to}
+          className={`nav-link ${extraClass} ${isActive(link) ? 'nav-link-active' : ''}`}
+          onClick={onClick}
+        >
+          {link.name}
+        </Link>
+      );
+    }
+    // Hash link — if not on home page, prefix with '/'
+    const href = location.pathname === '/' ? link.href : '/' + link.href;
+    return (
+      <a
+        key={link.name}
+        href={href}
+        className={`nav-link ${extraClass}`}
+        onClick={onClick}
+      >
+        {link.name}
+      </a>
+    );
+  };
 
   return (
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container nav-container">
-        <div className="nav-logo">
-          <Anchor className="logo-icon" size={32} />
+        <Link to="/" className="nav-logo" aria-label="Royal Naval Association Forth Valley — Home">
+          <Anchor className="logo-icon" size={38} />
           <div className="logo-text">
             <span className="logo-title">Royal Naval Association</span>
             <span className="logo-subtitle">Forth Valley</span>
           </div>
-        </div>
+        </Link>
 
         {/* Desktop Menu */}
         <div className="nav-links">
-          {navLinks.map((link) => (
-            <a key={link.name} href={link.href} className="nav-link">
-              {link.name}
-            </a>
-          ))}
-          <a href="https://www.royal-naval-association.co.uk/join-us" target="_blank" rel="noopener noreferrer" className="btn btn-primary nav-cta">Join Us</a>
+          {navLinks.map((link) => renderLink(link))}
+          <a
+            href="https://www.royal-naval-association.co.uk/join-us"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-primary nav-cta"
+          >
+            Join Us
+          </a>
         </div>
 
         {/* Mobile Menu Button */}
-        <button 
+        <button
           className="mobile-menu-btn"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
@@ -55,17 +92,18 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
-        {navLinks.map((link) => (
-          <a 
-            key={link.name} 
-            href={link.href} 
-            className="mobile-nav-link"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            {link.name}
-          </a>
-        ))}
-        <a href="https://www.royal-naval-association.co.uk/join-us" target="_blank" rel="noopener noreferrer" className="btn btn-primary mobile-nav-cta">Join Us</a>
+        {navLinks.map((link) =>
+          renderLink(link, 'mobile-nav-link', () => setIsMobileMenuOpen(false))
+        )}
+        <a
+          href="https://www.royal-naval-association.co.uk/join-us"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn btn-primary mobile-nav-cta"
+          onClick={() => setIsMobileMenuOpen(false)}
+        >
+          Join Us
+        </a>
       </div>
     </nav>
   );

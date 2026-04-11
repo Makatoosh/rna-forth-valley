@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      // GitHub Pages SPA redirect: send the path as a ?route= query param to index.html
+      var base = '/rna-forth-valley';
+      var route = window.location.pathname.replace(base, '') || '/';
+      window.location.replace(base + '/?route=' + encodeURIComponent(route));
+    </script>
+  </head>
+  <body></body>
+</html>

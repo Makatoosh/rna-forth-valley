@@ -1,76 +1,109 @@
 import React from 'react';
 import { Users, Shield, Heart, Anchor } from 'lucide-react';
 import './CoreValues.css';
-import secondaryBg from '../assets/images/secondary-bg.jpg';
 
 const values = [
   {
-    icon: <Users size={40} />,
+    icon: <Users size={28} />,
     title: 'Unity',
-    description: 'Shared backgrounds and equality in rank. We share the same bonds, the same mindset, and even the same language. We are all equal. We are the heart and soul of the Royal Naval Association.'
+    description: 'Shared backgrounds and equality in rank. We share the same bonds, the same mindset, and even the same language. We are all equal — the heart and soul of the Royal Naval Association.'
   },
   {
-    icon: <Shield size={40} />,
+    icon: <Shield size={28} />,
     title: 'Loyalty',
-    description: 'To each other and our dependents. We will always support and look out for each other. Our loyalty is to all our shipmates, our local communities, the personnel and dependents of the Naval Service, along with other charities or organisations with naval connections.'
+    description: 'To each other and our dependents. We will always support and look out for each other — our loyalty extends to all shipmates, our communities, and everyone with a naval connection.'
   },
   {
-    icon: <Heart size={40} />,
+    icon: <Heart size={28} />,
     title: 'Patriotism',
-    description: 'We are proud to serve and represent our country and the Naval Service. Our pride in serving our country never leaves us. Nor do we forget those who have fallen for our country or who fight now. We are deeply honoured to represent them on both a national and international level.'
+    description: 'We are proud to serve and represent our country and the Naval Service. Our pride never leaves us, nor do we forget those who have fallen or those who fight now.'
   },
   {
-    icon: <Anchor size={40} />,
+    icon: <Anchor size={28} />,
     title: 'Comradeship',
-    description: 'Friends in fun, fellowship and need. Your shipmates will always be here for you, whether it’s about a job, ideas for a fun day out or just an arm around the shoulder. We will never leave you or your dependents in despair.'
+    description: 'Friends in fun, fellowship and need. Your shipmates will always be here for you — whether about a job, a fun day out, or just an arm around the shoulder.'
   }
+];
+
+const sevenCs = [
+  'Community', 'Connection', 'Commemoration', 'Care',
+  'Compassion', 'Companionship', 'Celebration'
 ];
 
 const CoreValues = () => {
   return (
-    <section className="core-values" id="about" style={{ backgroundImage: `url(${secondaryBg})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed', position: 'relative' }}>
-      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(248, 249, 250, 0.95)' }}></div>
-      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-        <div className="section-header text-center">
-          <h2 className="section-title">About Our Branch</h2>
-          <div className="divider"></div>
-          <p className="section-subtitle" style={{ maxWidth: '800px', margin: '0 auto', fontSize: '1.1rem', lineHeight: '1.6', color: 'var(--navy-light)' }}>
-            Like all Royal Naval Association branches, the Forth Valley branch is friendly, inclusive, and free to join, welcoming serving and former Royal Navy and Royal Marines personnel, along with their families, who are proud of their naval service and heritage.
-            <br /><br />
-            We are here to bring together people with a naval connection across the Forth Valley and surrounding areas, offering companionship, support, and a strong sense of belonging within the wider Naval Family.
-            <br /><br />
-            Our branch exists to support members through life’s highs and lows through peer support, wellbeing signposting, and a welcoming programme of social activities, events, and commemorations.
-            <br /><br />
-            Guided by the RNA values of Unity, Loyalty, Patriotism, and Comradeship, we aim to create a space where everyone with a naval story feels valued and supported.
-            <br /><br />
-            At the heart of RNA Forth Valley are the Seven Cs of Comradeship:
-            <br />
-            Community, Connection, Commemoration, Care, Compassion, Companionship, and Celebration.
-            <br /><br />
-            We honour naval traditions, share experiences, and look out for one another, maintaining the naval ethos while enjoying good company and mutual support.
-            <br /><br />
-            As part of the Royal Naval Association, established in the aftermath of the Second World War, our mission is to foster comradeship, strengthen connections, and enhance the Naval Family through events, communication, and wellbeing support at a local level.
-          </p>
-        </div>
+    <section id="about">
 
-        <div className="section-header text-center" style={{ marginTop: '4rem' }}>
-          <h2 className="section-title">Our Core Values</h2>
-          <div className="divider"></div>
-          <p className="section-subtitle">
-            The Royal Naval Association provides companionship, comradeship, and unity to everyone with a naval story.
-          </p>
-        </div>
+      {/* ── About (white background) ── */}
+      <div className="about-section">
+        <div className="container about-container">
+          <div className="about-header">
+            <p className="section-eyebrow">Royal Naval Association · Forth Valley</p>
+            <h2 className="about-title">
+              The Naval Family<br />
+              <em>in your community.</em>
+            </h2>
+            <div className="about-rule" />
+          </div>
 
-        <div className="values-grid">
-          {values.map((value, index) => (
-            <div className="value-card" key={index}>
-              <div className="value-icon">{value.icon}</div>
-              <h3 className="value-title">{value.title}</h3>
-              <p className="value-desc">{value.description}</p>
+          <div className="about-body">
+            <div className="about-text">
+              <p>
+                Like all Royal Naval Association branches, the Forth Valley branch is friendly,
+                inclusive, and free to join — welcoming serving and former Royal Navy and Royal Marines
+                personnel, along with their families, who are proud of their naval service and heritage.
+              </p>
+              <p>
+                We bring together people with a naval connection across the Forth Valley and surrounding
+                areas, offering companionship, support, and a strong sense of belonging within the wider
+                Naval Family.
+              </p>
+              <p>
+                Our branch supports members through life's highs and lows through peer support,
+                wellbeing signposting, and a welcoming programme of social activities, events, and
+                commemorations. As part of the RNA — established after the Second World War — our mission
+                is to foster comradeship and enhance the Naval Family at a local level.
+              </p>
             </div>
-          ))}
+
+            <div className="about-sevens">
+              <p className="sevens-label">At the heart of RNA Forth Valley</p>
+              <h3 className="sevens-heading">The Seven Cs of Comradeship</h3>
+              <div className="sevens-chips">
+                {sevenCs.map((c) => (
+                  <span className="sevens-chip" key={c}>{c}</span>
+                ))}
+              </div>
+              <p className="sevens-footer">
+                We honour naval traditions, share experiences, and look out for one another —
+                maintaining the naval ethos while enjoying good company and mutual support.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
+
+      {/* ── Core Values (navy background) ── */}
+      <div className="values-section">
+        <div className="container">
+          <div className="values-header text-center">
+            <p className="section-eyebrow" style={{ color: 'rgba(212,175,55,0.75)' }}>Our Foundation</p>
+            <h2 className="values-title">Core Values</h2>
+          </div>
+          <div className="values-grid">
+            {values.map((value, index) => (
+              <div className="value-card" key={index}>
+                <div className="value-icon">{value.icon}</div>
+                <div className="value-body">
+                  <h3 className="value-title">{value.title}</h3>
+                  <p className="value-desc">{value.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
     </section>
   );
 };

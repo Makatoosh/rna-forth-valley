@@ -1,0 +1,65 @@
+.page-hero {
+  position: relative;
+  min-height: 48vh;
+  background-color: var(--navy-dark);
+  display: flex;
+  align-items: flex-end;
+  padding-top: 80px;
+  overflow: hidden;
+}
+
+/* Diagonal accent panel */
+.page-hero-geo {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(160deg, var(--navy) 0%, rgba(0,43,92,0.3) 100%);
+  clip-path: polygon(22% 0, 100% 0, 100% 100%, 0% 100%);
+  pointer-events: none;
+}
+
+.page-hero-content {
+  position: relative;
+  z-index: 1;
+  padding-top: 3rem;
+  padding-bottom: 4rem;
+}
+
+.page-hero-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(212, 175, 55, 0.75);
+  margin-bottom: 1rem;
+}
+
+.page-hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 5vw, 3.75rem);
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 1.25rem;
+  position: relative;
+  display: inline-block;
+}
+
+.page-hero-title::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: var(--gold);
+  border-radius: 2px;
+  margin-top: 1.25rem;
+}
+
+.page-hero-subtitle {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.70);
+  max-width: 560px;
+  line-height: 1.75;
+  margin-top: 0.25rem;
+}

@@ -1,0 +1,190 @@
+.contact-section {
+  padding: var(--spacing-lg) 0;
+  background-color: var(--bg-light);
+}
+
+.contact-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: var(--spacing-lg);
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .contact-inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Text side */
+.contact-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  color: var(--navy);
+  margin-bottom: var(--spacing-sm);
+}
+
+.contact-title::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: var(--gold);
+  margin-top: 0.5rem;
+}
+
+.contact-desc {
+  color: var(--text-light);
+  line-height: 1.7;
+  margin-bottom: var(--spacing-md);
+}
+
+.contact-meeting-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-left: 4px solid var(--gold);
+  background: white;
+  border-radius: 0 6px 6px 0;
+  box-shadow: var(--shadow-sm);
+  font-size: 0.95rem;
+  color: var(--text-light);
+}
+
+.contact-meeting-info strong {
+  color: var(--navy);
+  font-size: 1rem;
+}
+
+/* Form */
+.contact-form {
+  background: white;
+  border-radius: 10px;
+  padding: var(--spacing-md);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.cf-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-sm);
+}
+
+@media (max-width: 640px) {
+  .cf-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cf-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.cf-field label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--navy);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.cf-field input,
+.cf-field select,
+.cf-field textarea {
+  padding: 0.65rem 0.9rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-family: var(--font-sans);
+  color: var(--text-dark);
+  background: white;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  outline: none;
+}
+
+.cf-field input:focus,
+.cf-field select:focus,
+.cf-field textarea:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+}
+
+.cf-field textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.cf-field-error input,
+.cf-field-error select,
+.cf-field-error textarea {
+  border-color: var(--red-accent);
+}
+
+.cf-error {
+  font-size: 0.82rem;
+  color: var(--red-accent);
+}
+
+/* Submit error */
+.cf-submit-error {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: rgba(200, 16, 46, 0.07);
+  border: 1px solid rgba(200, 16, 46, 0.3);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: var(--red-accent);
+}
+
+/* Submit button */
+.cf-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.85rem;
+  font-size: 1rem;
+}
+
+.cf-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Success state */
+.contact-success {
+  max-width: 480px;
+  margin: 0 auto;
+  text-align: center;
+  padding: var(--spacing-lg) var(--spacing-md);
+  background: white;
+  border-radius: 10px;
+  border: 2px solid var(--gold);
+  box-shadow: var(--shadow-md);
+}
+
+.contact-success-icon {
+  color: #22c55e;
+  margin-bottom: var(--spacing-sm);
+}
+
+.contact-success h3 {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+
+.contact-success p {
+  color: var(--text-light);
+  margin-bottom: var(--spacing-md);
+}

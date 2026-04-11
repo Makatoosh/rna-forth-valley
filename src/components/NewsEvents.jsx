@@ -1,46 +1,41 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Calendar, ArrowRight, Rss } from 'lucide-react';
+import { eventsData } from '../data/events-data';
+import { newsData } from '../data/news-data';
 import './NewsEvents.css';
-import { news } from './news';
 
 const getNextSecondFriday = () => {
   const now = new Date();
-  
   const getSecondFriday = (year, month) => {
     const d = new Date(year, month, 1);
     const day = d.getDay();
-    // 0=Sun, 1=Mon, ..., 5=Fri, 6=Sat
     const firstFridayOffset = (5 - day + 7) % 7;
     const secondFridayDate = 1 + firstFridayOffset + 7;
     return new Date(year, month, secondFridayDate);
   };
-
   let candidate = getSecondFriday(now.getFullYear(), now.getMonth());
-  // Set candidate to end of the day so it shows ON that day until midnight
   candidate.setHours(23, 59, 59, 999);
-
   if (now > candidate) {
     candidate = getSecondFriday(now.getFullYear(), now.getMonth() + 1);
   }
-
-  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   return `${candidate.getDate()} ${months[candidate.getMonth()]}`;
 };
 
-const events = [
-  {
-    date: getNextSecondFriday(),
-    title: 'Monthly Branch Meeting',
-    location: 'RBLS Grangemouth, 4 Dundas Street, Grangemouth, FK3 8BQ',
-    time: '19:00 - 20:30'
-  },
-  {
-    date: '10 Apr',
-    title: 'Spring Charity Dinner',
-    location: 'Royal Hotel, Stirling',
-    time: '18:00 - 23:00'
-  }
-];
+const monthlyMeeting = {
+  date: getNextSecondFriday(),
+  title: 'Monthly Branch Meeting',
+  location: 'RBLS Grangemouth, 4 Dundas Street, Grangemouth, FK3 8BQ',
+  time: '19:00 - 20:30',
+};
+
+const additionalEvents = eventsData.map((e) => ({
+  ...e,
+  date: e.date.split(' ').slice(0, 2).join(' '), // "DD Mon YYYY" → "DD Mon"
+}));
+
+const upcomingEvents = [monthlyMeeting, ...additionalEvents].slice(0, 3);
 
 const NewsEvents = () => {
   return (
@@ -54,7 +49,7 @@ const NewsEvents = () => {
               <h2>Upcoming Events</h2>
             </div>
             <div className="events-list">
-              {events.map((event, i) => (
+              {upcomingEvents.map((event, i) => (
                 <div className="event-card" key={i}>
                   <div className="event-date">
                     <span className="date-day">{event.date.split(' ')[0]}</span>
@@ -67,9 +62,9 @@ const NewsEvents = () => {
                 </div>
               ))}
             </div>
-            <a href="#all-events" className="ne-link">
+            <Link to="/events" className="ne-link">
               View All Events <ArrowRight size={16} />
-            </a>
+            </Link>
           </div>
 
           {/* News Column */}
@@ -79,15 +74,15 @@ const NewsEvents = () => {
               <h2>Latest Branch News</h2>
             </div>
             <div className="news-list">
-              {news.map((item, i) => (
-                <article className="news-card" key={i}>
+              {newsData.slice(0, 2).map((item) => (
+                <article className="news-card" key={item.id}>
                   <span className="news-category">{item.category}</span>
                   <h4 className="news-title">{item.title}</h4>
                   <p className="news-excerpt">{item.excerpt}</p>
                 </article>
               ))}
             </div>
-            <a href="#all-news" className="ne-link">
+            <a href="#" className="ne-link">
               Read More News <ArrowRight size={16} />
             </a>
           </div>

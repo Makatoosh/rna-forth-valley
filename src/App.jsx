@@ -1,10 +1,11 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import HeroSection from './components/HeroSection';
-import CoreValues from './components/CoreValues';
-import Gallery from './components/Gallery';
-import NewsEvents from './components/NewsEvents';
 import Footer from './components/Footer';
+import HomePage from './pages/HomePage';
+import WelfarePage from './pages/WelfarePage';
+import CommitteePage from './pages/CommitteePage';
+import EventsPage from './pages/EventsPage';
 import './App.css';
 
 function App() {
@@ -12,10 +13,12 @@ function App() {
     <div className="app-container">
       <Navbar />
       <main>
-        <HeroSection />
-        <CoreValues />
-        <Gallery />
-        <NewsEvents />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/welfare" element={<WelfarePage />} />
+          <Route path="/committee" element={<CommitteePage />} />
+          <Route path="/events" element={<EventsPage />} />
+        </Routes>
       </main>
       <Footer />
     </div>

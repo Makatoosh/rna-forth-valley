@@ -1,37 +1,75 @@
 import React from 'react';
 import './HeroSection.css';
-import { ChevronRight } from 'lucide-react';
-import heroBg from '../assets/images/hero-bg.jpg';
+import { ChevronRight, Anchor } from 'lucide-react';
 
 const HeroSection = () => {
   return (
-    <section className="hero" id="home" style={{ backgroundImage: `url(${heroBg})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}>
-      <div className="hero-overlay"></div>
-      {/* 
-        In a real app, you'd use a high-quality nautical background image. 
-        For now we use a gradient combined with a placeholder pattern if needed. 
-      */}
-      <div className="container hero-content">
-        <div className="hero-badge fade-in-up">Est. 1950</div>
-        <h1 className="hero-title fade-in-up delay-1">Once Navy, Always Navy</h1>
-        <p className="hero-subtitle fade-in-up delay-2">
-          Welcome to the RNA Forth Valley Branch.
-          <br/>Unity. Loyalty. Patriotism. Comradeship.
-        </p>
-        <div className="hero-actions fade-in-up delay-3">
-          <a href="https://www.royal-naval-association.co.uk/join-us" target="_blank" rel="noopener noreferrer" className="btn btn-primary hero-btn">
-            Join the Branch <ChevronRight size={18} className="btn-icon" />
-          </a>
-          <a href="#about" className="btn btn-outline hero-btn">
-            Learn More
-          </a>
+    <section className="hero" id="home">
+      {/* Diagonal geometric right panel */}
+      <div className="hero-geo-panel" aria-hidden="true" />
+
+      <div className="container hero-inner">
+        {/* Left: text content */}
+        <div className="hero-content fade-in-up">
+          <p className="hero-eyebrow">
+            <span className="hero-eyebrow-rule" />
+            Forth Valley Branch · Est. 1950
+          </p>
+          <h1 className="hero-title">
+            Once Navy,
+            <br />
+            <em className="hero-title-em">Always Navy.</em>
+          </h1>
+          <p className="hero-body">
+            Serving and ex-Naval personnel and their families across the Forth Valley,
+            united by comradeship, loyalty, and a lifelong bond of service.
+          </p>
+          <div className="hero-actions">
+            <a
+              href="https://www.royal-naval-association.co.uk/join-us"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-primary hero-btn"
+            >
+              Join the Branch <ChevronRight size={17} className="btn-icon" />
+            </a>
+            <a href="#about" className="hero-link">
+              Learn More <ChevronRight size={15} />
+            </a>
+          </div>
+        </div>
+
+        {/* Right: decorative emblem */}
+        <div className="hero-emblem-wrap fade-in-up delay-2" aria-hidden="true">
+          <div className="hero-emblem">
+            <Anchor size={108} className="hero-emblem-anchor" strokeWidth={1.2} />
+          </div>
         </div>
       </div>
-      
-      {/* Scroll indicator */}
-      <div className="scroll-indicator fade-in-up delay-4">
-        <span>Scroll</span>
-        <div className="scroll-line"></div>
+
+      {/* Stats bar */}
+      <div className="hero-bar">
+        <div className="container hero-bar-inner">
+          <div className="hero-bar-item">
+            <span className="bar-value">Est. 1950</span>
+            <span className="bar-label">Founded</span>
+          </div>
+          <span className="hero-bar-sep" aria-hidden="true" />
+          <div className="hero-bar-item">
+            <span className="bar-value">2nd Friday</span>
+            <span className="bar-label">Monthly Meeting</span>
+          </div>
+          <span className="hero-bar-sep" aria-hidden="true" />
+          <div className="hero-bar-item">
+            <span className="bar-value">Grangemouth</span>
+            <span className="bar-label">RBLS Club</span>
+          </div>
+          <span className="hero-bar-sep" aria-hidden="true" />
+          <div className="hero-bar-item">
+            <span className="bar-value">Free to Join</span>
+            <span className="bar-label">All Welcome</span>
+          </div>
+        </div>
       </div>
     </section>
   );

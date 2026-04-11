@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Facebook, Twitter, Instagram } from 'lucide-react';
 import './Footer.css';
 
@@ -18,9 +19,8 @@ const Footer = () => {
               Once Navy, Always Navy.
             </p>
             <div className="social-links">
-              <a href="#" aria-label="Facebook"><Facebook size={20} /></a>
-              <a href="#" aria-label="Twitter"><Twitter size={20} /></a>
-              <a href="#" aria-label="Instagram"><Instagram size={20} /></a>
+              <a href="https://www.facebook.com/groups/349035108587097" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><Facebook size={20} /></a>
+              <a href="https://www.instagram.com/rna_forthvalley/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><Instagram size={20} /></a>
             </div>
           </div>
 
@@ -29,8 +29,9 @@ const Footer = () => {
             <h4 className="footer-heading">Quick Links</h4>
             <ul className="footer-links">
               <li><a href="#about">About the Branch</a></li>
-              <li><a href="#welfare">Welfare & Support</a></li>
-              <li><a href="#events">Upcoming Events</a></li>
+              <li><Link to="/welfare">Welfare &amp; Support</Link></li>
+              <li><Link to="/events">Upcoming Events</Link></li>
+              <li><Link to="/committee">Committee</Link></li>
               <li><a href="https://www.royal-naval-association.co.uk/join-us" target="_blank" rel="noopener noreferrer">Join the RNA</a></li>
               <li><a href="https://www.royal-naval-association.co.uk" target="_blank" rel="noopener noreferrer">National Website</a></li>
             </ul>
@@ -62,6 +63,9 @@ const Footer = () => {
             <a href="#">Privacy Policy</a>
             <a href="#">Terms of Use</a>
           </div>
+        </div>
+        <div className="footer-credit">
+          <p>Website created by <a href="https://charthouseai.com" target="_blank" rel="noopener noreferrer">Charthouse AI</a></p>
         </div>
       </div>
     </footer>
