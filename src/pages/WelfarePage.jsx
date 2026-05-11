@@ -30,7 +30,7 @@ const externalResources = [
   {
     name: 'RNA National Welfare',
     description: 'The national RNA welfare team offers a wide range of support services for members.',
-    url: 'https://www.royal-naval-association.co.uk/support/welfare',
+    url: 'https://www.royal-naval-association.co.uk/access-support',
   },
   {
     name: 'Veterans UK',

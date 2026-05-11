@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Anchor } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import './Navbar.css';
 
 const navLinks = [
@@ -60,7 +60,7 @@ const Navbar = () => {
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container nav-container">
         <Link to="/" className="nav-logo" aria-label="Royal Naval Association Forth Valley — Home">
-          <Anchor className="logo-icon" size={38} />
+          <img src="/rna-forth-valley/rna-logo-official.png" alt="RNA Crest" className="logo-icon" />
           <div className="logo-text">
             <span className="logo-title">Royal Naval Association</span>
             <span className="logo-subtitle">Forth Valley</span>

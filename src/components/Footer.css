@@ -14,7 +14,7 @@
 
 .footer-brand {
   margin-bottom: 1.5rem;
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
 }
 
@@ -32,6 +32,7 @@
   letter-spacing: 2px;
   color: var(--white);
   opacity: 0.9;
+  align-self: center;
 }
 
 .footer-desc {

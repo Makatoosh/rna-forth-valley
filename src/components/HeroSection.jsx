@@ -13,7 +13,7 @@ const HeroSection = () => {
         <div className="hero-content fade-in-up">
           <p className="hero-eyebrow">
             <span className="hero-eyebrow-rule" />
-            Forth Valley Branch · Est. 1950
+            Forth Valley Branch · Est. 2000
           </p>
           <h1 className="hero-title">
             Once Navy,
@@ -21,8 +21,7 @@ const HeroSection = () => {
             <em className="hero-title-em">Always Navy.</em>
           </h1>
           <p className="hero-body">
-            Serving and ex-Naval personnel and their families across the Forth Valley,
-            united by comradeship, loyalty, and a lifelong bond of service.
+            The Royal Naval Association is a totally inclusive, free to join, rank blind membership organisation serving ex-Naval personnel and their families across the Forth Valley, united by comradeship, loyalty, and a lifelong bond of service.
           </p>
           <div className="hero-actions">
             <a
@@ -51,7 +50,7 @@ const HeroSection = () => {
       <div className="hero-bar">
         <div className="container hero-bar-inner">
           <div className="hero-bar-item">
-            <span className="bar-value">Est. 1950</span>
+            <span className="bar-value">Est. 2000</span>
             <span className="bar-label">Founded</span>
           </div>
           <span className="hero-bar-sep" aria-hidden="true" />
