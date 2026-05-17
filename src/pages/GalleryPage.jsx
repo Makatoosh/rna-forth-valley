@@ -32,13 +32,19 @@ const GalleryPage = () => {
   useEffect(() => {
     if (!selected) return;
     const handleKey = (e) => {
-      if (e.key === 'ArrowRight') navigate(1);
-      else if (e.key === 'ArrowLeft') navigate(-1);
-      else if (e.key === 'Escape') setSelected(null);
+      if (e.key === 'ArrowRight') {
+        const idx = visibleImages.findIndex((img) => img.id === selected.id);
+        if (idx < visibleImages.length - 1) setSelected(visibleImages[idx + 1]);
+      } else if (e.key === 'ArrowLeft') {
+        const idx = visibleImages.findIndex((img) => img.id === selected.id);
+        if (idx > 0) setSelected(visibleImages[idx - 1]);
+      } else if (e.key === 'Escape') {
+        setSelected(null);
+      }
     };
     window.addEventListener('keydown', handleKey);
     return () => window.removeEventListener('keydown', handleKey);
-  }, [selected, selectedIndex]);
+  }, [selected, visibleImages]);
 
   const handleTouchStart = (e) => { touchStartX.current = e.touches[0].clientX; };
   const handleTouchEnd = (e) => {
