@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { X, ZoomIn } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { X, ZoomIn, ChevronLeft, ChevronRight } from 'lucide-react';
 import PageHero from '../components/PageHero';
 import { galleryData } from '../data/gallery-data';
 import './GalleryPage.css';
@@ -10,11 +10,43 @@ const categories = ['All', ...categoryNames];
 const GalleryPage = () => {
   const [selected, setSelected] = useState(null);
   const [activeCategory, setActiveCategory] = useState('All');
+  const touchStartX = useRef(null);
+
+  const visibleImages = activeCategory === 'All'
+    ? galleryData
+    : galleryData.filter((img) => img.caption === activeCategory);
+
+  const selectedIndex = selected ? visibleImages.findIndex((img) => img.id === selected.id) : -1;
+
+  const navigate = (dir) => {
+    if (selectedIndex === -1) return;
+    const next = selectedIndex + dir;
+    if (next >= 0 && next < visibleImages.length) setSelected(visibleImages[next]);
+  };
 
   useEffect(() => {
     document.body.style.overflow = selected ? 'hidden' : 'auto';
     return () => { document.body.style.overflow = 'auto'; };
   }, [selected]);
+
+  useEffect(() => {
+    if (!selected) return;
+    const handleKey = (e) => {
+      if (e.key === 'ArrowRight') navigate(1);
+      else if (e.key === 'ArrowLeft') navigate(-1);
+      else if (e.key === 'Escape') setSelected(null);
+    };
+    window.addEventListener('keydown', handleKey);
+    return () => window.removeEventListener('keydown', handleKey);
+  }, [selected, selectedIndex]);
+
+  const handleTouchStart = (e) => { touchStartX.current = e.touches[0].clientX; };
+  const handleTouchEnd = (e) => {
+    if (touchStartX.current === null) return;
+    const diff = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) navigate(diff > 0 ? 1 : -1);
+    touchStartX.current = null;
+  };
 
   const renderGrid = (images) => (
     <div className="gp-grid">
@@ -72,23 +104,29 @@ const GalleryPage = () => {
       </section>
 
       {selected && (
-        <div className="gp-lightbox" onClick={() => setSelected(null)}>
-          <button
-            className="gp-lightbox-close"
-            onClick={() => setSelected(null)}
-            aria-label="Close"
-          >
+        <div
+          className="gp-lightbox"
+          onClick={() => setSelected(null)}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
+          <button className="gp-lightbox-close" onClick={() => setSelected(null)} aria-label="Close">
             <X size={28} />
           </button>
-          <div
-            className="gp-lightbox-content"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <img
-              src={selected.url}
-              alt={selected.alt}
-              className="gp-lightbox-img"
-            />
+
+          {selectedIndex > 0 && (
+            <button className="gp-lightbox-nav gp-lightbox-prev" onClick={(e) => { e.stopPropagation(); navigate(-1); }} aria-label="Previous">
+              <ChevronLeft size={36} />
+            </button>
+          )}
+          {selectedIndex < visibleImages.length - 1 && (
+            <button className="gp-lightbox-nav gp-lightbox-next" onClick={(e) => { e.stopPropagation(); navigate(1); }} aria-label="Next">
+              <ChevronRight size={36} />
+            </button>
+          )}
+
+          <div className="gp-lightbox-content" onClick={(e) => e.stopPropagation()}>
+            <img src={selected.url} alt={selected.alt} className="gp-lightbox-img" />
             {selected.caption && (
               <p className="gp-lightbox-caption">{selected.caption}</p>
             )}

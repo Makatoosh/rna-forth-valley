@@ -98,6 +98,29 @@
   border-radius: 4px;
 }
 
+.gallery-lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: var(--white);
+  cursor: pointer;
+  padding: 0.75rem;
+  border-radius: 50%;
+  opacity: 0.8;
+  transition: opacity var(--transition-fast), background var(--transition-fast);
+  z-index: 2001;
+}
+
+.gallery-lightbox-nav:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.gallery-lightbox-prev { left: 1.5rem; }
+.gallery-lightbox-next { right: 1.5rem; }
+
 .gallery-lightbox-caption {
   color: var(--white);
   margin-top: 0.75rem;

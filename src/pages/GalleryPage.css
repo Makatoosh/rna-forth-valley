@@ -138,6 +138,29 @@
   border-radius: 4px;
 }
 
+.gp-lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: var(--white);
+  cursor: pointer;
+  padding: 0.75rem;
+  border-radius: 50%;
+  opacity: 0.8;
+  transition: opacity var(--transition-fast), background var(--transition-fast);
+  z-index: 2001;
+}
+
+.gp-lightbox-nav:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.gp-lightbox-prev { left: 1.5rem; }
+.gp-lightbox-next { right: 1.5rem; }
+
 .gp-lightbox-caption {
   color: var(--white);
   margin-top: 0.75rem;
