@@ -61,7 +61,7 @@ const Navbar = () => {
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container nav-container">
         <Link to="/" className="nav-logo" aria-label="Royal Naval Association Forth Valley — Home">
-          <img src="/rna-forth-valley/rna-logo-official.png" alt="RNA Crest" className="logo-icon" />
+          <img src="/rna-logo-official.png" alt="RNA Crest" className="logo-icon" />
           <div className="logo-text">
             <span className="logo-title">Royal Naval Association</span>
             <span className="logo-subtitle">Forth Valley</span>
