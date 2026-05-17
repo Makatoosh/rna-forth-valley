@@ -65,7 +65,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="footer-credit">
-          <p>Website created by <a href="https://charthouseai.com" target="_blank" rel="noopener noreferrer">Charthouse AI</a></p>
+          <p>Website created by Kenny MacIntosh</p>
         </div>
       </div>
     </footer>
