@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { X, ZoomIn, ChevronLeft, ChevronRight } from 'lucide-react';
 import PageHero from '../components/PageHero';
 import { galleryData } from '../data/gallery-data';
@@ -8,8 +9,15 @@ const categoryNames = Array.from(new Set(galleryData.map((img) => img.caption)))
 const categories = ['All', ...categoryNames];
 
 const GalleryPage = () => {
+  const [searchParams] = useSearchParams();
   const [selected, setSelected] = useState(null);
-  const [activeCategory, setActiveCategory] = useState('All');
+
+  const initialCategory = (() => {
+    const cat = searchParams.get('category');
+    return cat && categoryNames.includes(cat) ? cat : 'All';
+  })();
+
+  const [activeCategory, setActiveCategory] = useState(initialCategory);
   const touchStartX = useRef(null);
 
   const visibleImages = activeCategory === 'All'
