@@ -7,6 +7,7 @@ const navLinks = [
   { name: 'About',     href: '#about',    type: 'hash'  },
   { name: 'Welfare',   to: '/welfare',    type: 'route' },
   { name: 'Events',    to: '/events',     type: 'route' },
+  { name: 'Gallery',   to: '/gallery',    type: 'route' },
   { name: 'Committee', to: '/committee',  type: 'route' },
   { name: 'Contact',   href: '#contact',  type: 'hash'  },
 ];

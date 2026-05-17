@@ -1,64 +1,56 @@
-/* ── Gallery page ─────────────────────────────────────── */
-
-.gallery-section {
-  padding: 3rem 0 4rem;
+.gp-section {
+  padding: 3rem 0 5rem;
 }
 
-.gallery-container {
-  max-width: 680px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
-/* Category filter buttons */
-.gallery-filters {
+.gp-filters {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
   justify-content: center;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 
-.gallery-filter-btn {
-  padding: 0.35rem 1rem;
-  border: 1px solid #b0b8c1;
+.gp-filter-btn {
+  padding: 0.4rem 1.1rem;
+  border: 1px solid var(--border-subtle);
   background: transparent;
   border-radius: 4px;
   cursor: pointer;
   font-size: 0.875rem;
-  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  font-family: var(--font-sans);
+  color: var(--text-main);
+  transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
 }
 
-.gallery-filter-btn:hover,
-.gallery-filter-btn.active {
-  background: #1a3a5c;
-  color: #fff;
-  border-color: #1a3a5c;
+.gp-filter-btn:hover,
+.gp-filter-btn.active {
+  background: var(--navy);
+  color: var(--white);
+  border-color: var(--navy);
 }
 
-/* 2-column grid — columns shrink-wrap their content */
-.gallery-grid {
+.gp-grid {
   display: grid;
   grid-template-columns: repeat(2, max-content);
   gap: 12px;
   justify-content: center;
 }
 
-/* Each cell wraps the image and hover overlay */
-.gallery-cell {
+.gp-cell {
   position: relative;
   cursor: pointer;
-  line-height: 0;
-  border-radius: 4px;
   overflow: hidden;
+  border-radius: 4px;
+  line-height: 0;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-normal);
 }
 
-/*
-  Constrain so neither side exceeds 240 px.
-  A landscape 400×300 image → 240×180.
-  A portrait  300×400 image → 180×240.
-*/
-.gallery-img {
+.gp-cell:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.gp-img {
   display: block;
   max-width: 240px;
   max-height: 240px;
@@ -66,78 +58,76 @@
   height: auto;
 }
 
-.gallery-overlay {
+.gp-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(0, 43, 92, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: var(--white);
   opacity: 0;
-  transition: opacity 0.2s ease;
+  transition: opacity var(--transition-normal);
 }
 
-.gallery-cell:hover .gallery-overlay {
+.gp-cell:hover .gp-overlay {
   opacity: 1;
 }
 
-.gallery-empty {
+.gp-empty {
   text-align: center;
-  color: #666;
+  color: var(--text-light);
   font-size: 1rem;
   padding: 3rem 0;
 }
 
-/* ── Lightbox ─────────────────────────────────────────── */
-
-.gallery-lightbox {
+.gp-lightbox {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.88);
+  background: rgba(0, 0, 0, 0.9);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  z-index: 2000;
 }
 
-.gallery-lightbox-close {
+.gp-lightbox-close {
   position: absolute;
-  top: 1rem;
-  right: 1.25rem;
+  top: 1.5rem;
+  right: 1.5rem;
   background: none;
   border: none;
-  color: #fff;
+  color: var(--white);
   cursor: pointer;
-  padding: 0;
-  line-height: 1;
+  padding: 0.5rem;
   opacity: 0.8;
-  transition: opacity 0.15s;
+  transition: opacity var(--transition-fast);
 }
 
-.gallery-lightbox-close:hover {
+.gp-lightbox-close:hover {
   opacity: 1;
 }
 
-.gallery-lightbox-content {
+.gp-lightbox-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 1rem;
 }
 
-.gallery-lightbox-img {
+.gp-lightbox-img {
   display: block;
   max-width: 90vw;
-  max-height: 80vh;
+  max-height: 82vh;
   width: auto;
   height: auto;
   border-radius: 4px;
 }
 
-.gallery-lightbox-caption {
-  color: #e0e0e0;
+.gp-lightbox-caption {
+  color: var(--white);
   margin-top: 0.75rem;
   font-size: 0.9rem;
+  opacity: 0.85;
   text-align: center;
 }

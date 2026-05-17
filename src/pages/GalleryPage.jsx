@@ -4,12 +4,16 @@ import PageHero from '../components/PageHero';
 import { galleryData } from '../data/gallery-data';
 import './GalleryPage.css';
 
+const categories = ['All', ...Array.from(new Set(galleryData.map((img) => img.caption)))];
+
 const GalleryPage = () => {
   const [selected, setSelected] = useState(null);
   const [activeCategory, setActiveCategory] = useState('All');
 
-  const categories = ['All', ...Array.from(new Set(galleryData.map((img) => img.caption)))];
-  const filtered = activeCategory === 'All' ? galleryData : galleryData.filter((img) => img.caption === activeCategory);
+  const filtered =
+    activeCategory === 'All'
+      ? galleryData
+      : galleryData.filter((img) => img.caption === activeCategory);
 
   useEffect(() => {
     document.body.style.overflow = selected ? 'hidden' : 'auto';
@@ -23,14 +27,14 @@ const GalleryPage = () => {
         subtitle="Photos and moments from the RNA Forth Valley community."
       />
 
-      <section className="gallery-section">
-        <div className="gallery-container">
+      <section className="gp-section">
+        <div className="container">
 
-          <div className="gallery-filters">
+          <div className="gp-filters">
             {categories.map((cat) => (
               <button
                 key={cat}
-                className={`gallery-filter-btn${activeCategory === cat ? ' active' : ''}`}
+                className={`gp-filter-btn${activeCategory === cat ? ' active' : ''}`}
                 onClick={() => setActiveCategory(cat)}
               >
                 {cat}
@@ -39,21 +43,17 @@ const GalleryPage = () => {
           </div>
 
           {filtered.length === 0 ? (
-            <p className="gallery-empty">Photos coming soon.</p>
+            <p className="gp-empty">Photos coming soon.</p>
           ) : (
-            <div className="gallery-grid">
+            <div className="gp-grid">
               {filtered.map((image) => (
                 <div
                   key={image.id}
-                  className="gallery-cell"
+                  className="gp-cell"
                   onClick={() => setSelected(image)}
                 >
-                  <img
-                    src={image.url}
-                    alt={image.alt}
-                    className="gallery-img"
-                  />
-                  <div className="gallery-overlay">
+                  <img src={image.url} alt={image.alt} className="gp-img" />
+                  <div className="gp-overlay">
                     <ZoomIn size={24} />
                   </div>
                 </div>
@@ -65,22 +65,25 @@ const GalleryPage = () => {
       </section>
 
       {selected && (
-        <div className="gallery-lightbox" onClick={() => setSelected(null)}>
+        <div className="gp-lightbox" onClick={() => setSelected(null)}>
           <button
-            className="gallery-lightbox-close"
+            className="gp-lightbox-close"
             onClick={() => setSelected(null)}
             aria-label="Close"
           >
             <X size={28} />
           </button>
-          <div className="gallery-lightbox-content" onClick={(e) => e.stopPropagation()}>
+          <div
+            className="gp-lightbox-content"
+            onClick={(e) => e.stopPropagation()}
+          >
             <img
               src={selected.url}
               alt={selected.alt}
-              className="gallery-lightbox-img"
+              className="gp-lightbox-img"
             />
             {selected.caption && (
-              <p className="gallery-lightbox-caption">{selected.caption}</p>
+              <p className="gp-lightbox-caption">{selected.caption}</p>
             )}
           </div>
         </div>
