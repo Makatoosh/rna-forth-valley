@@ -31,7 +31,7 @@
 
 .gp-grid {
   display: grid;
-  grid-template-columns: repeat(2, max-content);
+  grid-template-columns: repeat(3, max-content);
   gap: 12px;
   justify-content: center;
 }
@@ -72,6 +72,20 @@
 
 .gp-cell:hover .gp-overlay {
   opacity: 1;
+}
+
+.gp-category {
+  margin-bottom: 3rem;
+}
+
+.gp-category-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--navy-pale);
+  font-family: var(--font-serif);
 }
 
 .gp-empty {

@@ -4,21 +4,28 @@ import PageHero from '../components/PageHero';
 import { galleryData } from '../data/gallery-data';
 import './GalleryPage.css';
 
-const categories = ['All', ...Array.from(new Set(galleryData.map((img) => img.caption)))];
+const categoryNames = Array.from(new Set(galleryData.map((img) => img.caption)));
+const categories = ['All', ...categoryNames];
 
 const GalleryPage = () => {
   const [selected, setSelected] = useState(null);
   const [activeCategory, setActiveCategory] = useState('All');
 
-  const filtered =
-    activeCategory === 'All'
-      ? galleryData
-      : galleryData.filter((img) => img.caption === activeCategory);
-
   useEffect(() => {
     document.body.style.overflow = selected ? 'hidden' : 'auto';
     return () => { document.body.style.overflow = 'auto'; };
   }, [selected]);
+
+  const renderGrid = (images) => (
+    <div className="gp-grid">
+      {images.map((image) => (
+        <div key={image.id} className="gp-cell" onClick={() => setSelected(image)}>
+          <img src={image.url} alt={image.alt} className="gp-img" />
+          <div className="gp-overlay"><ZoomIn size={24} /></div>
+        </div>
+      ))}
+    </div>
+  );
 
   return (
     <>
@@ -42,23 +49,23 @@ const GalleryPage = () => {
             ))}
           </div>
 
-          {filtered.length === 0 ? (
-            <p className="gp-empty">Photos coming soon.</p>
-          ) : (
-            <div className="gp-grid">
-              {filtered.map((image) => (
-                <div
-                  key={image.id}
-                  className="gp-cell"
-                  onClick={() => setSelected(image)}
-                >
-                  <img src={image.url} alt={image.alt} className="gp-img" />
-                  <div className="gp-overlay">
-                    <ZoomIn size={24} />
-                  </div>
+          {activeCategory === 'All' ? (
+            categoryNames.map((cat) => {
+              const images = galleryData.filter((img) => img.caption === cat);
+              return (
+                <div key={cat} className="gp-category">
+                  <h3 className="gp-category-title">{cat}</h3>
+                  {renderGrid(images)}
                 </div>
-              ))}
-            </div>
+              );
+            })
+          ) : (
+            (() => {
+              const images = galleryData.filter((img) => img.caption === activeCategory);
+              return images.length === 0
+                ? <p className="gp-empty">Photos coming soon.</p>
+                : renderGrid(images);
+            })()
           )}
 
         </div>
