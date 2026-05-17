@@ -20,6 +20,8 @@ const GalleryPage = () => {
   const [activeCategory, setActiveCategory] = useState(initialCategory);
   const touchStartX = useRef(null);
 
+  useEffect(() => { window.scrollTo(0, 0); }, []);
+
   const visibleImages = activeCategory === 'All'
     ? galleryData
     : galleryData.filter((img) => img.caption === activeCategory);
