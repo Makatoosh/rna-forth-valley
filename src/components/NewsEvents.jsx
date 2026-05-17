@@ -82,9 +82,9 @@ const NewsEvents = () => {
                 </article>
               ))}
             </div>
-            <a href="#" className="ne-link">
+            <Link to="/news" className="ne-link">
               Read More News <ArrowRight size={16} />
-            </a>
+            </Link>
           </div>
         </div>
       </div>

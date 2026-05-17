@@ -1,13 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import './Navbar.css';
 
 const navLinks = [
   { name: 'About',     href: '#about',    type: 'hash'  },
   { name: 'Welfare',   to: '/welfare',    type: 'route' },
   { name: 'Events',    to: '/events',     type: 'route' },
-  { name: 'Gallery',   to: '/gallery',    type: 'route' },
+  {
+    name: 'Media',
+    type: 'dropdown',
+    children: [
+      { name: 'News',    to: '/news',    type: 'route' },
+      { name: 'Gallery', to: '/gallery', type: 'route' },
+    ],
+  },
   { name: 'Committee', to: '/committee',  type: 'route' },
   { name: 'Contact',   href: '#contact',  type: 'hash'  },
 ];
@@ -15,6 +22,7 @@ const navLinks = [
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -24,10 +32,14 @@ const Navbar = () => {
   }, []);
 
   const isActive = (link) => {
-    if (link.type === 'route') {
-      return location.pathname.startsWith(link.to);
-    }
+    if (link.type === 'route') return location.pathname.startsWith(link.to);
+    if (link.type === 'dropdown') return link.children.some((c) => location.pathname.startsWith(c.to));
     return false;
+  };
+
+  const closeMobile = () => {
+    setIsMobileMenuOpen(false);
+    setOpenDropdown(null);
   };
 
   const renderLink = (link, extraClass = '', onClick) => {
@@ -43,7 +55,6 @@ const Navbar = () => {
         </Link>
       );
     }
-    // Hash link — if not on home page, prefix with '/'
     const href = location.pathname === '/' ? link.href : '/' + link.href;
     return (
       <a
@@ -70,7 +81,22 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <div className="nav-links">
-          {navLinks.map((link) => renderLink(link))}
+          {navLinks.map((link) => {
+            if (link.type === 'dropdown') {
+              return (
+                <div key={link.name} className={`nav-dropdown ${isActive(link) ? 'nav-dropdown-active' : ''}`}>
+                  <button className="nav-dropdown-btn">
+                    {link.name}
+                    <ChevronDown size={13} className="dropdown-chevron" />
+                  </button>
+                  <div className="dropdown-menu">
+                    {link.children.map((child) => renderLink(child, 'dropdown-item'))}
+                  </div>
+                </div>
+              );
+            }
+            return renderLink(link);
+          })}
           <a
             href="https://www.royal-naval-association.co.uk/join-us"
             target="_blank"
@@ -93,15 +119,32 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
-        {navLinks.map((link) =>
-          renderLink(link, 'mobile-nav-link', () => setIsMobileMenuOpen(false))
-        )}
+        {navLinks.map((link) => {
+          if (link.type === 'dropdown') {
+            const isOpen = openDropdown === link.name;
+            return (
+              <div key={link.name} className="mobile-dropdown-wrapper">
+                <button
+                  className={`mobile-nav-link mobile-dropdown-toggle ${isActive(link) ? 'nav-link-active' : ''}`}
+                  onClick={() => setOpenDropdown(isOpen ? null : link.name)}
+                >
+                  {link.name}
+                  <ChevronDown size={14} className={`dropdown-chevron ${isOpen ? 'rotated' : ''}`} />
+                </button>
+                <div className={`mobile-dropdown-items ${isOpen ? 'open' : ''}`}>
+                  {link.children.map((child) => renderLink(child, 'mobile-nav-link mobile-sub-link', closeMobile))}
+                </div>
+              </div>
+            );
+          }
+          return renderLink(link, 'mobile-nav-link', closeMobile);
+        })}
         <a
           href="https://www.royal-naval-association.co.uk/join-us"
           target="_blank"
           rel="noopener noreferrer"
           className="btn btn-primary mobile-nav-cta"
-          onClick={() => setIsMobileMenuOpen(false)}
+          onClick={closeMobile}
         >
           Join Us
         </a>

@@ -7,6 +7,7 @@ import WelfarePage from './pages/WelfarePage';
 import CommitteePage from './pages/CommitteePage';
 import EventsPage from './pages/EventsPage';
 import GalleryPage from './pages/GalleryPage';
+import NewsPage from './pages/NewsPage';
 import './App.css';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path="/committee" element={<CommitteePage />} />
           <Route path="/events" element={<EventsPage />} />
           <Route path="/gallery" element={<GalleryPage />} />
+          <Route path="/news" element={<NewsPage />} />
         </Routes>
       </main>
       <Footer />
