@@ -279,7 +279,22 @@
   border-bottom: 1px solid rgba(0, 43, 92, 0.04) !important;
 }
 
-@media (min-width: 768px) {
+/* Tablet portrait and below → hamburger */
+@media (max-width: 1023px) {
+  .logo-icon {
+    height: 64px;
+  }
+  .logo-title {
+    font-size: 1.1rem;
+  }
+  .logo-subtitle {
+    font-size: 0.78rem;
+    letter-spacing: 1.5px;
+  }
+}
+
+/* Desktop → full nav */
+@media (min-width: 1024px) {
   .nav-links {
     display: flex;
   }
