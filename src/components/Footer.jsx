@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, Facebook, Twitter, Instagram } from 'lucide-react';
+import { Phone, MapPin, Facebook, Instagram } from 'lucide-react';
 import './Footer.css';
 
 const Footer = () => {
@@ -47,11 +47,7 @@ const Footer = () => {
               </li>
               <li>
                 <Phone size={18} className="contact-icon" />
-                <span>01234 567 890</span>
-              </li>
-              <li>
-                <Mail size={18} className="contact-icon" />
-                <span>info@rnaforthvalley.co.uk</span>
+                <span>07457 409200</span>
               </li>
             </ul>
           </div>
