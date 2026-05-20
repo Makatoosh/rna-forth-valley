@@ -1,0 +1,46 @@
+.pp-section {
+  padding: 4rem 0 5rem;
+}
+
+.pp-content {
+  max-width: 760px;
+  color: var(--text);
+}
+
+.pp-updated {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-bottom: 2.5rem;
+}
+
+.pp-content h2 {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--navy-dark);
+  margin: 2.25rem 0 0.6rem;
+}
+
+.pp-content p,
+.pp-content ul {
+  font-size: 0.97rem;
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+
+.pp-content ul {
+  padding-left: 1.5rem;
+}
+
+.pp-content li {
+  margin-bottom: 0.4rem;
+}
+
+.pp-content a {
+  color: var(--navy);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.pp-content a:hover {
+  color: var(--gold-dark);
+}
