@@ -64,4 +64,6 @@ export const galleryData = [
   { id: 52, url: '/RNA%20Phots/HMS%20Stirling%20Castle%20Ship%20Visit/HMS%20Stirling%20Castle6.jpg', alt: 'HMS Stirling Castle Ship Visit', caption: 'HMS Stirling Castle Ship Visit' },
   { id: 53, url: '/RNA%20Phots/HMS%20Stirling%20Castle%20Ship%20Visit/HMS%20Stirling%20Castle7.jpg', alt: 'HMS Stirling Castle Ship Visit', caption: 'HMS Stirling Castle Ship Visit' },
   { id: 54, url: '/RNA%20Phots/HMS%20Stirling%20Castle%20Ship%20Visit/HMS%20Stirling%20Castle8.jpg', alt: 'HMS Stirling Castle Ship Visit', caption: 'HMS Stirling Castle Ship Visit' },
+  { id: 55, url: '/RNA%20Phots/HMS%20Stirling%20Castle%20Ship%20Visit/HMS%20Stirling%20Castle9.jpg', alt: 'HMS Stirling Castle Ship Visit', caption: 'HMS Stirling Castle Ship Visit' },
+  { id: 56, url: '/RNA%20Phots/HMS%20Stirling%20Castle%20Ship%20Visit/HMS%20Stirling%20Castle10.jpg', alt: 'HMS Stirling Castle Ship Visit', caption: 'HMS Stirling Castle Ship Visit' },
 ];
