@@ -54,4 +54,14 @@ export const galleryData = [
   { id: 44, url: '/RNA%20Phots/Standard%20Bearer%20Training/IMG_6081.JPG', alt: 'Standard Bearer Training', caption: 'Standard Bearer Training' },
   { id: 45, url: '/RNA%20Phots/Standard%20Bearer%20Training/IMG_6083.JPG', alt: 'Standard Bearer Training', caption: 'Standard Bearer Training' },
   { id: 46, url: '/RNA%20Phots/Standard%20Bearer%20Training/IMG_6084.JPG', alt: 'Standard Bearer Training', caption: 'Standard Bearer Training' },
+
+  // HMS Stirling Castle Ships Visit
+  { id: 47, url: '/RNA%20Phots/HMS%20Stirling%20Castle%20Ships%20Visit/HMS%20Stirling%20Castle1.jpg', alt: 'HMS Stirling Castle Ships Visit', caption: 'HMS Stirling Castle Ships Visit' },
+  { id: 48, url: '/RNA%20Phots/HMS%20Stirling%20Castle%20Ships%20Visit/HMS%20Stirling%20Castle2.jpg', alt: 'HMS Stirling Castle Ships Visit', caption: 'HMS Stirling Castle Ships Visit' },
+  { id: 49, url: '/RNA%20Phots/HMS%20Stirling%20Castle%20Ships%20Visit/HMS%20Stirling%20Castle3.jpg', alt: 'HMS Stirling Castle Ships Visit', caption: 'HMS Stirling Castle Ships Visit' },
+  { id: 50, url: '/RNA%20Phots/HMS%20Stirling%20Castle%20Ships%20Visit/HMS%20Stirling%20Castle4.jpg', alt: 'HMS Stirling Castle Ships Visit', caption: 'HMS Stirling Castle Ships Visit' },
+  { id: 51, url: '/RNA%20Phots/HMS%20Stirling%20Castle%20Ships%20Visit/HMS%20Stirling%20Castle5.jpg', alt: 'HMS Stirling Castle Ships Visit', caption: 'HMS Stirling Castle Ships Visit' },
+  { id: 52, url: '/RNA%20Phots/HMS%20Stirling%20Castle%20Ships%20Visit/HMS%20Stirling%20Castle6.jpg', alt: 'HMS Stirling Castle Ships Visit', caption: 'HMS Stirling Castle Ships Visit' },
+  { id: 53, url: '/RNA%20Phots/HMS%20Stirling%20Castle%20Ships%20Visit/HMS%20Stirling%20Castle7.jpg', alt: 'HMS Stirling Castle Ships Visit', caption: 'HMS Stirling Castle Ships Visit' },
+  { id: 54, url: '/RNA%20Phots/HMS%20Stirling%20Castle%20Ships%20Visit/HMS%20Stirling%20Castle8.jpg', alt: 'HMS Stirling Castle Ships Visit', caption: 'HMS Stirling Castle Ships Visit' },
 ];
