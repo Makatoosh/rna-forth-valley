@@ -18,24 +18,6 @@
 
 export const eventsData = [
   {
-    id: 2,
-    title: 'Stirling Armed Forces Day 2026',
-    date: '13 Jun 2026',
-    time: '10:00 - 14:00',
-    location: 'Stirling Castle, Victoria Square, Stirling',
-    description: 'Join us at Stirling Castle for Armed Forces Day 2026, celebrating and honouring the service of our Armed Forces community.',
-    type: 'social',
-  },
-  {
-    id: 3,
-    title: 'Armed Forces Day Falkirk 2026',
-    date: '4 Jul 2026',
-    time: '12:00 - 17:00',
-    location: 'Callendar Road, Falkirk, Scotland, FK1 1YR',
-    description: 'Armed Forces Day in Falkirk, celebrating and honouring the service of our Armed Forces community.',
-    type: 'social',
-  },
-  {
     id: 4,
     title: 'Remembrance Sunday',
     date: '8 Nov 2026',
