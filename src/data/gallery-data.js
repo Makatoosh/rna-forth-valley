@@ -66,4 +66,8 @@ export const galleryData = [
   { id: 54, url: '/RNA%20Phots/HMS%20Stirling%20Castle%20Ship%20Visit/HMSStirlingCastle08.jpg', alt: 'HMS Stirling Castle Ship Visit', caption: 'HMS Stirling Castle Ship Visit' },
   { id: 55, url: '/RNA%20Phots/HMS%20Stirling%20Castle%20Ship%20Visit/HMSStirlingCastle09.jpg', alt: 'HMS Stirling Castle Ship Visit', caption: 'HMS Stirling Castle Ship Visit' },
   { id: 56, url: '/RNA%20Phots/HMS%20Stirling%20Castle%20Ship%20Visit/HMSStirlingCastle10.jpg', alt: 'HMS Stirling Castle Ship Visit', caption: 'HMS Stirling Castle Ship Visit' },
+
+  // Grangemouth Armed Forces Day 2026
+  { id: 57, url: '/RNA%20Phots/Grangemouth%20Armed%20Forces%20Day%202026/IMG_0725.JPG', alt: 'Grangemouth Armed Forces Day 2026', caption: 'Grangemouth Armed Forces Day 2026' },
+  { id: 58, url: '/RNA%20Phots/Grangemouth%20Armed%20Forces%20Day%202026/IMG_8472.JPG', alt: 'Grangemouth Armed Forces Day 2026', caption: 'Grangemouth Armed Forces Day 2026' },
 ];
