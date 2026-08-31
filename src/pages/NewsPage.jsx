@@ -26,7 +26,13 @@ const NewsPage = () => {
                     {item.date && <span className="news-page-date">{item.date}</span>}
                   </div>
                   <h2 className="news-page-title">{item.title}</h2>
-                  <p className="news-page-excerpt">{item.excerpt}</p>
+                  {item.body ? (
+                    item.body.split('\n\n').map((paragraph, i) => (
+                      <p className="news-page-excerpt" key={i}>{paragraph}</p>
+                    ))
+                  ) : (
+                    <p className="news-page-excerpt">{item.excerpt}</p>
+                  )}
                 </article>
               ))}
             </div>
