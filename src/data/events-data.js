@@ -18,15 +18,6 @@
 
 export const eventsData = [
   {
-    id: 1,
-    title: 'RNA National Conference - Salford',
-    date: '12 Jun 2026',
-    time: 'All Day',
-    location: 'Salford',
-    description: "The RNA's 76th Annual Conference over two days, with various events planned for delegates in Salford. Email ams@rnassoc.org for more details.",
-    type: 'meeting',
-  },
-  {
     id: 2,
     title: 'Stirling Armed Forces Day 2026',
     date: '13 Jun 2026',
