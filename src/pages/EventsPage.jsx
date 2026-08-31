@@ -52,10 +52,14 @@ const EventsPage = () => {
     type: 'meeting',
   };
 
-  const allEvents = [monthlyMeeting, ...eventsData.map((e) => {
-    const parts = e.date.split(' ');
-    return { ...e, _dayNum: parts[0], _month: parts[1], _display: `${parts[0]} ${parts[1]}` };
-  })];
+  const sortedEvents = [...eventsData]
+    .sort((a, b) => new Date(a.date) - new Date(b.date))
+    .map((e) => {
+      const parts = e.date.split(' ');
+      return { ...e, _dayNum: parts[0], _month: parts[1], _display: `${parts[0]} ${parts[1]}` };
+    });
+
+  const allEvents = [monthlyMeeting, ...sortedEvents];
 
   const filtered = filter === 'all' ? allEvents : allEvents.filter((e) => e.type === filter);
 
